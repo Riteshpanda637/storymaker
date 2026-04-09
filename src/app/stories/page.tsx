@@ -1,0 +1,113 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+const navItems = [
+  { name: "HOME", href: "/home" },
+  { name: "GALLERIES", href: "/galleries" },
+  { name: "STORIES", href: "/stories" },
+  { name: "TESTIMONIALS", href: "/testimonials" },
+  { name: "ABOUT", href: "/about" },
+  { name: "ENQUIRE", href: "/enquire" },
+];
+
+const stories = [
+  {
+    title: "BIKASH & LIZARANI",
+    date: "November 15, 2024",
+    cover: "/BIKASH%20%26%20LIZARANI/Cover.jpg",
+    slug: "bikash-lizarani",
+  },
+  {
+    title: "SRIDHAR & ARCHANA",
+    date: "January 24, 2025",
+    cover: "/Sridhar%20%26%20Archana/DJI_0994-1.jpg",
+    slug: "sridhar-archana",
+  },
+  {
+    title: "SUNIL & SWETHA",
+    date: "January 24, 2025",
+    cover: "/SUNIL%20X%20SWETHA/DSC_8742-1.jpg",
+    slug: "sunil-swetha",
+  },
+];
+
+export default function StoriesPage() {
+  return (
+    <main className="home-page">
+      {/* Header */}
+      <header className="header">
+        <div className="header-logo">
+          <Image
+            src="/logo/2.svg"
+            alt="StoryMaker wedding photography logo by Jaga Patro"
+            width={120}
+            height={80}
+            className="logo-dark"
+          />
+        </div>
+
+        <nav className="nav" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <Link key={item.name} href={item.href} className="nav-link">
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+      </header>
+
+      {/* Stories */}
+      <div className="stories-content">
+        {stories.map((story, index) => (
+          <div key={index} className="story-section">
+            {/* Cover Image */}
+            <Link href={`/stories/${story.slug}`} className="story-cover-link">
+              <div className="story-cover">
+                <Image
+                  src={story.cover}
+                  alt={`${story.title} wedding story cover - photography by StoryMaker`}
+                  width={1100}
+                  height={500}
+                  className="story-cover-image"
+                />
+                <div className="story-cover-overlay">
+                  <h2 className="story-cover-title">{story.title}</h2>
+                </div>
+              </div>
+            </Link>
+
+            {/* Info */}
+            <div className="story-info-block">
+              <h3 className="story-info-title">{story.title}</h3>
+              <p className="story-info-date">{story.date}</p>
+
+              <Link href={`/stories/${story.slug}`} className="story-read-more">
+                Read More
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Call Button */}
+      <a href="tel:+917787874949" className="call-btn" aria-label="Call us">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      </a>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-content">
+          <a href="https://www.instagram.com/thestorymaker.in/" target="_blank" rel="noopener noreferrer" className="instagram-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <span className="footer-brand">STORYMAKER</span>
+        </div>
+      </footer>
+    </main>
+  );
+}
